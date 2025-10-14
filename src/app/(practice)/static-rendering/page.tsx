@@ -18,6 +18,9 @@ const StaticRenderingPage = () => {
       <Link href="/dynamic-rendering" prefetch={true}>
         Go to Dynamic Rendering
       </Link>
+      <Link href="/intercepting-route" prefetch={true}>
+        Go to Intercepting Route
+      </Link>
     </Box>
   );
 };
