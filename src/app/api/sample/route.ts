@@ -1,3 +1,6 @@
+import prisma from "@/lib/prisma";
+
 export async function GET() {
-  return Response.json({ message: "OK" });
+  const users = await prisma.user.findMany();
+  return Response.json(users);
 }
