@@ -2,6 +2,7 @@ import React from "react";
 import { ERROR_MESSAGES } from "@/constants";
 import Box from "@/components/Box";
 import ActionWithServer from "@/components/ActionWithServer";
+import ActionWithClient from "@/components/ActionWithClient";
 
 type PropsType = {
   searchParams: Promise<{
@@ -14,6 +15,7 @@ const CallServerActionPage = async ({ searchParams }: PropsType) => {
     <Box>
       <h1>Call Server Action</h1>
       <ActionWithServer searchParams={searchParams} />
+      <ActionWithClient />
     </Box>
   );
 };
