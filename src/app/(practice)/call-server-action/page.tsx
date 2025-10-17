@@ -3,6 +3,7 @@ import { ERROR_MESSAGES } from "@/constants";
 import Box from "@/components/Box";
 import ActionWithServer from "@/components/ActionWithServer";
 import ActionWithClient from "@/components/ActionWithClient";
+import ActionWithActionState from "@/components/ActionWithActionState";
 
 type PropsType = {
   searchParams: Promise<{
@@ -16,6 +17,7 @@ const CallServerActionPage = async ({ searchParams }: PropsType) => {
       <h1>Call Server Action</h1>
       <ActionWithServer searchParams={searchParams} />
       <ActionWithClient />
+      <ActionWithActionState />
     </Box>
   );
 };
