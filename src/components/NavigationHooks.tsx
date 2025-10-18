@@ -1,11 +1,13 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Box from "./Box";
 
 const NavigationHooks = () => {
   const router = useRouter();
+  const pathname = usePathname();
+
   const pushStaticRendering = () => {
     router.push("/static-rendering");
   };
@@ -20,7 +22,10 @@ const NavigationHooks = () => {
 
   return (
     <Box>
-      <button onClick={pushStaticRendering}>
+      <button
+        onClick={pushStaticRendering}
+        className={pathname === "/static-rendering" ? "underline" : ""}
+      >
         Go to Static Rendering(push)
       </button>
       <button onClick={replaceStaticRendering}>
