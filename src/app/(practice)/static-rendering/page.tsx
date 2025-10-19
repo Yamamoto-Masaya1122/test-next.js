@@ -4,11 +4,21 @@ import StaticClientComponent from "@/components/StaticClientComponent";
 import StaticServerComponent from "@/components/StaticServerComponent";
 import Link from "next/link";
 import Image from "next/image";
+import { cookies } from "next/headers";
+import { logout } from "@/actions/logout";
+import { notFound, redirect } from "next/navigation";
 
-const StaticRenderingPage = () => {
+const StaticRenderingPage = async () => {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token")?.value ?? "なし";
+
+  if (token !== "abc") {
+    notFound();
+  }
   return (
     <Box>
       <h1>Static Rendering Page</h1>
+      <p>{token}</p>
       <StaticServerComponent text="Static Server ComponentへのProps" />
       <StaticClientComponent text="Static Client ComponentへのProps" />
       <Image src="/150x150.png" alt="サンプル画像" width={150} height={150} />
@@ -21,6 +31,9 @@ const StaticRenderingPage = () => {
       <Link href="/intercepting-route" prefetch={true}>
         Go to Intercepting Route
       </Link>
+      <form action={logout}>
+        <button type="submit">Logout</button>
+      </form>
     </Box>
   );
 };
