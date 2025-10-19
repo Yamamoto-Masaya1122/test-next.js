@@ -4,6 +4,7 @@ import Box from "@/components/Box";
 import ActionWithServer from "@/components/ActionWithServer";
 import ActionWithClient from "@/components/ActionWithClient";
 import ActionWithActionState from "@/components/ActionWithActionState";
+import { refreshTodo } from "@/actions/refresh-todo";
 
 type PropsType = {
   searchParams: Promise<{
@@ -18,6 +19,9 @@ const CallServerActionPage = async ({ searchParams }: PropsType) => {
       <ActionWithServer searchParams={searchParams} />
       <ActionWithClient />
       <ActionWithActionState />
+      <form action={refreshTodo}>
+        <button type="submit">Refresh Todo</button>
+      </form>
     </Box>
   );
 };

@@ -9,6 +9,7 @@ type Todo = {
 const DataCache1 = async () => {
   const res = await fetch("https://dummyjson.com/todos/random", {
     cache: "force-cache",
+    next: { tags: ["todo"] },
   });
   const todo: Todo = await res.json();
   return (

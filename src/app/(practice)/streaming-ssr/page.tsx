@@ -3,7 +3,7 @@ import Box from "@/components/Box";
 import DelayServerDataFetch from "@/components/DelayServerDataFetch";
 
 const StreamingSsrPage = () => {
-  throw new Error("Streaming SSR Page Error");
+  // throw new Error("Streaming SSR Page Error");
   return (
     <Box>
       <h1>Streaming SSR Page</h1>
